@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Controle_Vendas.Models.Login>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Login</h1>
+
+<p>
+    <a asp-action="Create">Novo Cadastro</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Nivel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.email)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.senha)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nivel)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.senha)
+            </td>
+            <td>
+                    <a asp-action="Edit" class="btn btn-sm btn-info" asp-route-id="@item.LoginId"><i class="bi bi-brush">editar</i></a> |
+                    <a asp-action="Details" class="btn btn-sm btn-danger" asp-route-id="@item.LoginId"><i class="bi bi-eye">Detalhes</i></a> |
+                    <a asp-action="Delete" class="btn btn-sm btn-warning" asp-route-id="@item.LoginId"><i class="bi bi-trash">Deletar</i></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
